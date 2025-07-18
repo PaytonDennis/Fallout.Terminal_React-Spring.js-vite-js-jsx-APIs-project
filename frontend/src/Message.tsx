@@ -32,8 +32,8 @@ function Message() {
           src={falloutGif}
           alt="Fallout Animated Sticker"
           style={{
-            width: 80,
-            height: 80,
+            width: 180,
+            height: 180,
             position: "absolute",
             top: "50%",
             left: "50%",
