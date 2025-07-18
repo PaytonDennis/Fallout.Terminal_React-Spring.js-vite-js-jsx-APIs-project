@@ -1,11 +1,14 @@
 import "./App.css";
+import Navbar from "./Navbar";
 import Message from "./Message";
 
 function App() {
   return (
     <div>
-      {" "}
-      <Message />
+      <Navbar />
+      <div style={{ paddingTop: 60 }}>
+        <Message />
+      </div>
     </div>
   );
 }
