@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import earthGif from "./assets/Rotating_earth_animated_transparent.gif";
+import falloutGif from "./assets/Fallout Vault Dweller Sticker by Amazon Prime Video.gif";
 
 function Message() {
   const [oopMessage, setOopMessage] = useState("Loading...");
@@ -14,11 +15,32 @@ function Message() {
   return (
     <div>
       <h1>Current Output</h1>
-      <img
-        src={earthGif}
-        alt="Rotating Earth"
-        style={{ width: "200px", display: "block", margin: "16px auto" }}
-      />
+      <div
+        style={{
+          position: "relative",
+          width: 200,
+          height: 200,
+          margin: "16px auto",
+        }}
+      >
+        <img
+          src={earthGif}
+          alt="Rotating Earth"
+          style={{ width: 200, height: 200, display: "block", margin: 0 }}
+        />
+        <img
+          src={falloutGif}
+          alt="Fallout Animated Sticker"
+          style={{
+            width: 80,
+            height: 80,
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        />
+      </div>
       <p>{oopMessage}</p>
     </div>
   );
