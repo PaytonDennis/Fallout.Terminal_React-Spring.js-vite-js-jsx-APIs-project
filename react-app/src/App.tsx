@@ -1,8 +1,13 @@
 import "./App.css";
-import message from "./Message";
+import Message from "./Message";
 
 function App() {
-  return message;
+  return (
+    <div>
+      {" "}
+      <Message />
+    </div>
+  );
 }
 
 export default App;
