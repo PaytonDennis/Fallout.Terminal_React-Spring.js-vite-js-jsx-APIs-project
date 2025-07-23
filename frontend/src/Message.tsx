@@ -6,7 +6,7 @@ function Message() {
   const [oopMessage, setOopMessage] = useState("Loading...");
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/oop-message")
+    fetch("http://localhost:8080/api/message")
       .then((res) => res.text())
       .then((msg) => setOopMessage(msg))
       .catch(() => setOopMessage("Error fetching message"));

@@ -1,12 +1,16 @@
 package com.example.backend;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api") // Add this line
 public class ApiController {
-    @GetMapping("/api/oop-message")
+
+    @GetMapping("/message")
     public String getOopMessage() {
-        return "Hello, OOP Practice!";
+        oopPractice practice = new oopPractice();
+        return practice.getMainMessage() + practice.displayMessage();
     }
 }
