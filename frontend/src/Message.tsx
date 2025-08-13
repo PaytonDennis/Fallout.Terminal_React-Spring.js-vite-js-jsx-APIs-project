@@ -1,47 +1,31 @@
-import React, { useEffect, useState } from "react";
-import earthGif from "./assets/Rotating_earth_animated_transparent.gif";
-import falloutGif from "./assets/Fallout Vault Dweller Sticker by Amazon Prime Video.gif";
+import React from "react";
+import terminalVideo from "./assets/terminal.mp4";
 
 function Message() {
-  const [oopMessage, setOopMessage] = useState("Loading...");
-
-  useEffect(() => {
-    fetch("http://localhost:8080/api/message")
-      .then((res) => res.text())
-      .then((msg) => setOopMessage(msg))
-      .catch(() => setOopMessage("Error fetching message"));
-  }, []);
-
   return (
-    <div>
-      <h1>Current Output</h1>
-      <div
+    <div
+      style={{
+        position: "fixed",
+        top: "60px", // height of navbar, adjust if needed
+        left: 0,
+        width: "100%",
+        height: "calc(100vh - 60px)",
+        overflow: "hidden",
+        zIndex: -1,
+      }}
+    >
+      <video
+        src={terminalVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
         style={{
-          position: "relative",
-          width: 200,
-          height: 200,
-          margin: "16px auto",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
         }}
-      >
-        <img
-          src={earthGif}
-          alt="Rotating Earth"
-          style={{ width: 200, height: 200, display: "block", margin: 0 }}
-        />
-        <img
-          src={falloutGif}
-          alt="Fallout Animated Sticker"
-          style={{
-            width: 180,
-            height: 180,
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
-        />
-      </div>
-      <p>{oopMessage}</p>
+      />
     </div>
   );
 }
