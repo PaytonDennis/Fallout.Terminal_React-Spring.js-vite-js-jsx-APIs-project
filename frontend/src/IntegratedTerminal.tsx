@@ -1,7 +1,9 @@
+// IntegratedTerminal.tsx
 import React, { useEffect, useState } from "react";
 import terminalVideo from "./assets/terminal.mp4";
+import TypingText from "./TypingText";
 
-function Message() {
+function IntegratedTerminal() {
   const [oopMessage, setOopMessage] = useState("Loading...");
 
   useEffect(() => {
@@ -23,7 +25,7 @@ function Message() {
         zIndex: -1,
       }}
     >
-      {/* Cursor cover to hide original */}
+      {/* Cursor cover */}
       <div
         style={{
           position: "absolute",
@@ -36,7 +38,7 @@ function Message() {
         }}
       ></div>
 
-      {/* Background Video */}
+      {/* Background video */}
       <video
         src={terminalVideo}
         autoPlay
@@ -47,23 +49,26 @@ function Message() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
+          pointerEvents: "none",
         }}
       />
 
-      {/* Overlay Text */}
+      {/* Terminal text with typewriter effect */}
       <div
         style={{
           position: "absolute",
-          top: "12.5%", // adjust to match terminal text position
-          left: "19.5%", // adjust for left alignment
+          top: "12.5%",
+          left: "19.5%",
           width: "45%",
           color: "#00ff00",
           fontFamily: "monospace",
-          fontSize: "1.5rem",
+          fontSize: "clamp(1rem, 2vw, 1.5rem)",
           whiteSpace: "pre-wrap",
         }}
       >
-        {`>${oopMessage}`}
+        <TypingText text={`>${oopMessage}`} />
+
+        {/* Blinking cursor */}
         <span
           style={{
             display: "inline-block",
@@ -76,7 +81,7 @@ function Message() {
         ></span>
       </div>
 
-      {/* Blinking animation */}
+      {/* Cursor blink animation */}
       <style>
         {`
           @keyframes blink {
@@ -88,4 +93,4 @@ function Message() {
   );
 }
 
-export default Message;
+export default IntegratedTerminal;

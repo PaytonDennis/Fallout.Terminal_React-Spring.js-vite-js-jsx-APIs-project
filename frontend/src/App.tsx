@@ -1,12 +1,13 @@
 import "./App.css";
 import Navbar from "./Navbar";
-import Message from "./Message";
 import dogtownLogo from "./assets/DOGTOWN_ARMAMENTS.jpg";
+import IntegratedTerminal from "./IntegratedTerminal";
 
 function App() {
   return (
     <div>
       <Navbar />
+
       <div
         style={{
           width: "50vw",
@@ -18,6 +19,7 @@ function App() {
           justifyContent: "center",
         }}
       >
+        {/* Dogtown logo */}
         <img
           src={dogtownLogo}
           alt="Dogtown Armaments Logo"
@@ -31,22 +33,20 @@ function App() {
             zIndex: 0,
           }}
         />
+
+        {/* Terminal container */}
         <div
           style={{
             position: "relative",
             zIndex: 1,
-            color: "#00ff00",
-            textShadow:
-              "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
             width: "100%",
-            textAlign: "center",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <Message />
+          <IntegratedTerminal />
         </div>
       </div>
     </div>
